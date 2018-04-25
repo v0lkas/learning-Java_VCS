@@ -1,6 +1,6 @@
 package vcs.lesson_05;
 
-public class numbers_ {
+public class Main {
     public static void main(String[] args) {
         double a = 1.25;
         System.out.println(a);
@@ -16,5 +16,15 @@ public class numbers_ {
         // method 3 <-- recomended
         double e = (double) 4/3;
         System.out.println(e);
+
+
+        String s1 = "I Love ";
+        s1 += "Java";
+        String s2 = "I ";
+        s2 += "Love Java";
+        if(s1 == s2)        System.out.println("s1 == s2");
+        else                System.out.println("s1 != s2");             // <--
+        if(s1.equals(s2))   System.out.println("s1 equals s2");         // <--
+        else                System.out.println("s1 is not equals s2");
     }
 }
