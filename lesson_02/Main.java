@@ -1,4 +1,4 @@
-package vcs.pamoka02;
+package vcs.lesson_02;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package vcs.pamoka03;
+package vcs.lesson_03;
 
 import java.util.Scanner;
 import java.util.stream.IntStream;

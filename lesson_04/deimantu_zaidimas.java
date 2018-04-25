@@ -1,4 +1,4 @@
-package vcs.pamoka04;
+package vcs.lesson_04;
 
 import java.util.Random;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package vcs.pamoka03;
+package vcs.lesson_03;
 
 public class while_ {
     public static void main(String[] args) {
