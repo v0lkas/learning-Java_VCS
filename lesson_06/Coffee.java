@@ -4,35 +4,67 @@ public class Coffee {
     private double sugar;       // kg
     private double beans;       // kg
     private double water;       // ltr
-    private double milk;       // ltr
+    private double milk;        // ltr
     private int usage;          // number of used times
     private int max_usage;      // number of max uses
 
     public Coffee() {
-        sugar = 1;
-        beans = 1;
-        water = 3;
-        milk = 1;
-        usage = 0;
-        max_usage = 100;
+        this.max_usage = 5;
+        this.sugar = 1.0;
+        this.beans = 1.0;
+        this.water = 3.0;
+        this.milk = 1.0;
+        this.usage = 0;
+    }
+
+    String[] products = {
+        "Americano",
+        "Espresso",
+        "Latte",
+        "Capuchino"
+    };
+
+    double[][] usages = {
+        // sugar, beans, water, milk
+        {0.05, 0.05, 0.2, 0.0},
+        {0.1, 0.1, 0.025, 0.0},
+        {0.05, 0.05, 0.2, 0.1},
+        {0.025, 0.05, 0.2, 0.05}
+    };
+
+    public String[] getProducts() {
+        return products;
+    }
+
+    public double[][] getUsages() {
+        return usages;
+    }
+
+    public double maxUsage(int nr) {
+        double max = 0;
+        for (int i = 0; i < usages.length; i++) {
+            if(usages[i][nr] > max) {
+                max = usages[i][nr];
+            }
+        }
+        return max;
     }
 
     public boolean isReady() {
-        if(sugar > 0 && beans > 0 && water > 0 && milk > 0 && usage < max_usage) {
-            System.out.println("Aparatas pasiruošęs! Prašome pasirinkti kavą:");
+        if(sugar >= maxUsage(0) && beans >= maxUsage(1) && water >= maxUsage(2) && milk >= maxUsage(3) && usage < max_usage) {
             return true;
         }
         else {
-            if(sugar <= 0) {
+            if(sugar <= maxUsage(0)) {
                 System.out.println("Trūksta cukraus!");
             }
-            if(beans <= 0) {
+            if(beans <= maxUsage(1)) {
                 System.out.println("Trūksta kavos pupelių!");
             }
-            if(water <= 0) {
+            if(water <= maxUsage(2)) {
                 System.out.println("Trūksta vandens!");
             }
-            if(milk <= 0) {
+            if(milk <= maxUsage(3)) {
                 System.out.println("Trūksta pieno!");
             }
             if(usage == max_usage) {
@@ -50,12 +82,9 @@ public class Coffee {
 
         int left = max_usage - usage;
         System.out.println("Naudojimų iki valymo: "+left);
-
-        System.out.println("--");
-        System.out.print("Grįžti į užsakymo pradžią (T)? ");
     }
 
-    public void resetSomething(int nr) {
+    public void resetCounter(int nr) {
         if(nr == -1) {
             this.sugar = 1;
         }
@@ -73,20 +102,15 @@ public class Coffee {
         }
     }
 
-    public void makeCoffe(String title, double sugar, double beans, double water, double milk) {
-        this.usage -= 1;
-        this.sugar -= sugar;
-        this.beans -= beans;
-        this.water -= water;
-        this.milk -= milk;
+    protected void makeDrink(String title, double[] data) {
+        if(isReady() == true) {
+            this.usage++;
+            this.sugar -= data[0];
+            this.beans -= data[1];
+            this.water -= data[2];
+            this.milk -= data[3];
 
-        System.out.println(title+" pagaminta!");
+            System.out.println(title + " pagaminta!");
+        }
     }
-
-    public void setUsage() {
-        this.usage = 0;
-        System.out.println("Kavos aparatas išvalytas!");
-    }
-
-
 }
