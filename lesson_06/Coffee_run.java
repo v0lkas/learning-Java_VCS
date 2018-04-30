@@ -35,7 +35,7 @@ public class Coffee_run {
             System.out.print("Įrašykite pasirinkimo numerį: ");
             int nr = nmbrs.nextInt();
 
-            if (nr >= 0 && nr < order.getProducts().length) {
+            if (nr >= 0 && nr < order.getProducts().length && nr < 9) {
                 order.makeDrink(order.getProducts()[nr], order.getUsages()[nr]);
             } else if (nr == 9) {
                 order.showStatus();

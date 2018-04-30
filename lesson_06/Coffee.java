@@ -20,6 +20,7 @@ public class Coffee {
     String[] products = {
         "Americano",
         "Espresso",
+        "Double Espresso",
         "Latte",
         "Capuchino"
     };
@@ -27,8 +28,9 @@ public class Coffee {
     double[][] usages = {
         // sugar, beans, water, milk
         {0.05, 0.05, 0.2, 0.0},
-        {0.1, 0.1, 0.025, 0.0},
-        {0.05, 0.05, 0.2, 0.1},
+        {0.1, 0.075, 0.05, 0.0},
+        {0.15, 0.15, 0.1, 0.0},
+        {0.05, 0.05, 0.15, 0.1},
         {0.025, 0.05, 0.2, 0.05}
     };
 
