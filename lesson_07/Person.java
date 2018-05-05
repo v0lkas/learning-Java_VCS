@@ -11,7 +11,7 @@ public class Person {
         System.out.println("Speak");
     }
 
-    // private ž pasiekiama tik toje pačioje klasėje
+    // private - pasiekiama tik toje pačioje klasėje
     private void bye() {
         System.out.println("Bye");
     }
