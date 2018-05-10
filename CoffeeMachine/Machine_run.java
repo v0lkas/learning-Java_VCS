@@ -1,5 +1,7 @@
 package vcs.CoffeeMachine;
 
+import vcs.CoffeeMachine.CoffeeCups.AmericanoCoffeeCup;
+
 import java.util.Scanner;
 
 public class Machine_run {
@@ -30,14 +32,8 @@ public class Machine_run {
         String input = listen.next();
 
         System.out.println();
-        if(input.toLowerCase().equals("am")) {
-            machine.coffeeAmericano();
-        } else if(input.toLowerCase().equals("es")) {
-            machine.coffeeEspresso();
-        } else if(input.toLowerCase().equals("lt")) {
-            machine.coffeeLatte();
-        } else if(input.toLowerCase().equals("cp")) {
-            machine.coffeeCapuccino();
+        if(input.toLowerCase().equals("am") || input.toLowerCase().equals("es") || input.toLowerCase().equals("lt") || input.toLowerCase().equals("cp")) {
+            machine.makeCoffee(input.toLowerCase());
         } else if(input.toLowerCase().equals("wt")) {
             machine.products.resetWater(3.0);
             System.out.println("Water refilled!");

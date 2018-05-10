@@ -1,5 +1,10 @@
 package vcs.CoffeeMachine;
 
+import vcs.CoffeeMachine.CoffeeCups.AmericanoCoffeeCup;
+import vcs.CoffeeMachine.CoffeeCups.CappuccinoCoffeeCup;
+import vcs.CoffeeMachine.CoffeeCups.EspressoCoffeeCup;
+import vcs.CoffeeMachine.CoffeeCups.LatteCoffeeCup;
+
 public class Machine {
     private static final int MAX_USAGE_COUNT = 7;
     private int usageCounter;
@@ -31,7 +36,7 @@ public class Machine {
         System.out.println();
     }
 
-    public void coffeeAmericano() {
+    public AmericanoCoffeeCup coffeeAmericano() {
         double needWater = 0.25;
         double needMilk = 0.0;
         double needSugar = 0.05;
@@ -49,11 +54,13 @@ public class Machine {
             Machine_run.listenToUser();
         } else {
             this.products.notEnoughProducts(needWater, needMilk, needSugar, needBeans);
-            Machine_run.listenToUser();
+            //Machine_run.listenToUser();
         }
+        Products p = new Products(needWater,needMilk,needSugar,needBeans);
+        return new AmericanoCoffeeCup(p);
     }
 
-    public void coffeeEspresso() {
+    public EspressoCoffeeCup coffeeEspresso() {
         double needWater = 0.075;
         double needMilk = 0.0;
         double needSugar = 0.1;
@@ -71,11 +78,13 @@ public class Machine {
             Machine_run.listenToUser();
         } else {
             this.products.notEnoughProducts(needWater, needMilk, needSugar, needBeans);
-            Machine_run.listenToUser();
+            //Machine_run.listenToUser();
         }
+        Products p = new Products(needWater,needMilk,needSugar,needBeans);
+        return new EspressoCoffeeCup(p);
     }
 
-    public void coffeeLatte() {
+    public LatteCoffeeCup coffeeLatte() {
         double needWater = 0.2;
         double needMilk = 0.05;
         double needSugar = 0.1;
@@ -93,11 +102,13 @@ public class Machine {
             Machine_run.listenToUser();
         } else {
             this.products.notEnoughProducts(needWater, needMilk, needSugar, needBeans);
-            Machine_run.listenToUser();
+            //Machine_run.listenToUser();
         }
+        Products p = new Products(needWater,needMilk,needSugar,needBeans);
+        return new LatteCoffeeCup(p);
     }
 
-    public void coffeeCapuccino() {
+    public CappuccinoCoffeeCup coffeeCapuccino() {
         double needWater = 0.22;
         double needMilk = 0.03;
         double needSugar = 0.05;
@@ -115,7 +126,21 @@ public class Machine {
             Machine_run.listenToUser();
         } else {
             this.products.notEnoughProducts(needWater, needMilk, needSugar, needBeans);
-            Machine_run.listenToUser();
+            //Machine_run.listenToUser();
+        }
+        Products p = new Products(needWater,needMilk,needSugar,needBeans);
+        return new CappuccinoCoffeeCup(p);
+    }
+
+    public CoffeeCup makeCoffee(String coffeeType) {
+        if(coffeeType.toLowerCase().equals("am")) {
+            return this.coffeeAmericano();
+        } else if(coffeeType.toLowerCase().equals("es")) {
+            return this.coffeeEspresso();
+        } else if(coffeeType.toLowerCase().equals("lt")) {
+            return this.coffeeLatte();
+        } else  {
+            return this.coffeeCapuccino();
         }
     }
 }

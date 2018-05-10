@@ -1,7 +1,5 @@
 package vcs.CoffeeMachine;
 
-import java.util.HashMap;
-
 public class Products {
     private double water;   // ltr
     private double milk;    // ltr
@@ -13,6 +11,13 @@ public class Products {
         this.milk = 1.0;
         this.sugar = 0.5;
         this.beans = 1.0;
+    }
+
+    public Products(double water, double milk, double sugar, double beans) {
+        this.water = water;
+        this.milk  = milk;
+        this.sugar = sugar;
+        this.beans = beans;
     }
 
     public double getWater() {
