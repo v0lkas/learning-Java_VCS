@@ -3,22 +3,13 @@ package vcs.lesson_04;
 import java.util.Random;
 import java.util.Scanner;
 
-public class deimantu_zaidimas {
+public class task_diamonds_game {
     public static void main(String[] args) {
-        zaidimas();
-
-        System.out.print("Ar norite pakartoti žaidimą (T / N)? ");
-        Scanner psr = new Scanner(System.in);
-        String pasirinkimas = psr.next();
-        if(pasirinkimas.toLowerCase().equals("t")) {
-            System.out.println();
-            System.out.println();
-            zaidimas();
-        }
+        diamonds();
     }
 
-    static void zaidimas() {
-        // Sukuriamas zaidimas
+    static void diamonds() {
+        // Sukuriamas diamonds
         int diamondCount = 0;
         int[][] game = new int[5][5];
         while (diamondCount != 7) {
@@ -44,9 +35,9 @@ public class deimantu_zaidimas {
             Scanner crt = new Scanner(System.in);
 
             ++nr;
-            System.out.print("Spėkite, deimanto nr."+nr+" eilutę (1-5): ");
+            System.out.print("Guess diamond #"+nr+" row (1-5): ");
             int eil = crt.nextInt();
-            System.out.print("Spėkite, deimanto nr."+nr+" stulpelį (1-5): ");
+            System.out.print("Guess diamond #"+nr+" column (1-5): ");
             int stp = crt.nextInt();
 
             if(eil >= 1 && eil <= 5 && stp >= 1 && stp <= 5) {
@@ -57,7 +48,7 @@ public class deimantu_zaidimas {
                     ++atsp;
                 }
                 else if(game[eil][stp] == 0)    game[eil][stp] = 3;
-                else                            System.out.println("Toks spėjimas jau buvo.");
+                else                            System.out.println("You already gave that coordinates.");
 
                 for(int i2 = 0; i2 < 5; ++i2) {
                     for (int j2 = 0; j2 < 5; ++j2) {
@@ -68,13 +59,22 @@ public class deimantu_zaidimas {
                     System.out.println();
                 }
             }
-            else System.out.println("KLAIDINGAI NURODYTAS RUOŽAS!");
+            else System.out.println("Wrong coordinate!");
         }
 
         System.out.println();
-        System.out.println("Teisingų atsakymų: "+atsp+" iš 7");
-            if(atsp >= 3)   System.out.println("VALIO!!!");
+        System.out.println("Right answers: "+atsp+" of 7");
+            if(atsp >= 3)   System.out.println("CONGRATULATIONS!!!");
             else            System.out.println(":(((((((");
         System.out.println();
+
+        System.out.print("Repeat game (Y / N)? ");
+        Scanner psr = new Scanner(System.in);
+        String choice = psr.next();
+        if(choice.toLowerCase().equals("y")) {
+            System.out.println();
+            System.out.println();
+            diamonds();
+        }
     }
 }
