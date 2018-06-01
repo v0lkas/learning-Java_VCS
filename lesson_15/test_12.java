@@ -14,7 +14,7 @@ class B12 extends A12 {
 }
 
 class C12 extends B12 {
-    int sk = 3;
+    int sk = 3; // nothing, uses B12
 }
 
 class D12 extends C12 {

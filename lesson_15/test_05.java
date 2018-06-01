@@ -8,7 +8,7 @@ class BBB {
         System.out.println(sk);
     }
 
-    //private BBB(int sk) {
+    // private BBB(int sk) {        (default test)
     public BBB(int sk) {
         this.sk = sk;
     }

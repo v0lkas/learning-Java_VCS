@@ -9,6 +9,8 @@ class AAA {
     }
 
     private AAA(int sk) {
+        // sk = sk > 2      (default test)
+        // this.sk = sk > 3 (normally)
         sk = sk;
     }
 }

@@ -23,10 +23,10 @@ public class test_14 {
         B14 b14 = new B14();
         C14 c14 = new C14();
 
-        System.out.println(a14.equals(a14));
-        System.out.println(b14.equals(a14));
-        System.out.println(new D14().equals(c14));
-        System.out.println(new C14().equals(c14));
-        System.out.println(c14.equals(a14));
+        System.out.println(a14.equals(a14));        // true
+        System.out.println(b14.equals(a14));        // true
+        System.out.println(new D14().equals(c14));  // false
+        System.out.println(new C14().equals(c14));  // false
+        System.out.println(c14.equals(a14));        // true
     }
 }

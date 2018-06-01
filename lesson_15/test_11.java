@@ -14,7 +14,7 @@ class B11 extends A11 {
 }
 
 class C11 extends B11 {
-    int sk = 3;
+    int sk = 3; // does nothing, C11 takes value from B11
 }
 
 public class test_11 {
